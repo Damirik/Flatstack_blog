@@ -24,13 +24,16 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'shoulda-matchers', '< 3.0.0'
+  gem 'shoulda-matchers'
+  gem 'email_spec'
+  gem 'formulaic'
 end
 
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'faker'
 end
 
 group :development do

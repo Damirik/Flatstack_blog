@@ -79,6 +79,10 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    email_spec (2.1.0)
+      htmlentities (~> 4.3.3)
+      launchy (~> 2.1)
+      mail (~> 2.6.3)
     erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.7.0)
@@ -86,12 +90,19 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
+    faker (1.6.6)
+      i18n (~> 0.5)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.14)
+    formulaic (0.3.0)
+      activesupport
+      capybara
+      i18n
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashie (3.4.6)
+    htmlentities (4.3.4)
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -101,6 +112,8 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     jwt (1.5.6)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     less (2.6.0)
       commonjs (~> 0.2.7)
     less-rails (2.8.0)
@@ -288,7 +301,10 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 4.2)
   devise
+  email_spec
   factory_girl_rails
+  faker
+  formulaic
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -302,7 +318,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
-  shoulda-matchers (< 3.0.0)
+  shoulda-matchers
   simple_form
   slim-rails
   spring
