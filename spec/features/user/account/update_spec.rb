@@ -8,10 +8,10 @@ feature "Update Account" do
   end
 
   scenario "User updates account with valid data" do
-    fill_form(:user, :edit, email: "neemail@test.com", current_password: current_user.password )
+    fill_form(:user, :edit, full_name: "NewTestName" )
     click_button "Update"
 
-    expect(page).to have_content("neemail@test.com")
+    expect(page).to have_content("NewTestName")
   end
 
   scenario "User enters not matched passwords" do

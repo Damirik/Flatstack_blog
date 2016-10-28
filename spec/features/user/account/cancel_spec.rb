@@ -15,7 +15,7 @@ feature "Cancel Account" do
 
     click_link "Sign in"
     fill_form(:user, current_user.attributes.slice(:email, :password))
-    click_button "Log in"
+    click_button "Sign in"
 
     expect(page).to have_content("Forgot your password")
   end

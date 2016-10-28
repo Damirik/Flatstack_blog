@@ -6,8 +6,8 @@ h2 Edit profile
         html: { method: :put } do |f|
 
       .form-inputs
-        = f.input :full_name, required: true, autofocus: true
-        = f.input :email, required: true
+        = f.input :full_name, required: false, autofocus: true
+        = f.input :email, required: false
         = f.input :password,
             autocomplete: "off",
             required: false
@@ -17,12 +17,12 @@ h2 Edit profile
       .form-actions
         = f.button :submit, "Update"
 
-    h6
-      b Cancel my account
-    p
-      | Unhappy?
-      '
-      = link_to "Cancel my account.",
-          registration_path(resource_name),
-          data: { confirm: "Are you sure?" },
-          method: :delete
+h6
+b Cancel my account
+p
+| Unhappy?
+
+= link_to "Cancel my account.",
+      registration_path(resource_name),
+      data: { confirm: "Are you sure?" },
+      method: :delete
