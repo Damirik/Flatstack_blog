@@ -17,6 +17,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'rubocop', require: false
+gem 'draper'
+gem 'decent_decoration'
+gem 'decent_exposure'
 
 group :production do
   gem 'pg'
