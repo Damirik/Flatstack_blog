@@ -22,7 +22,7 @@ gem 'pg'
 
 group :test do
   gem 'capybara'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '< 3.0.0'
   gem 'email_spec'
   gem 'formulaic'
 end
