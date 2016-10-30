@@ -17,11 +17,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'rubocop', require: false
+gem 'pg'
 
-
-group :production do
-  gem 'pg'
-end
 
 group :test do
   gem 'capybara'
@@ -40,7 +37,6 @@ end
 group :development do
   gem 'better_errors'
   gem 'pry-rails'
-  gem 'sqlite3'
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
