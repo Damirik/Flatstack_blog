@@ -1,6 +1,6 @@
 h1 Welcome #{current_user.full_name}
 p.notice
-= notice
+  = notice
 p.alert
-= alert
+  = alert
 = link_to 'Sign out', destroy_user_session_path, method: "delete"
