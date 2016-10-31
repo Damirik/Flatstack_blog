@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   validates :full_name, presence: true
   has_many :blogs, dependent: :destroy
+  has_many :posts, through: :blogs
 end
