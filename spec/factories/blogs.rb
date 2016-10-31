@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :blog do
-    subject "MyString"
-    user_id 1
+    subject "TestBlog"
+    user
   end
 end
