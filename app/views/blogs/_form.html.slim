@@ -1,9 +1,8 @@
-= simple_form_for(@blog) do |f|
+= simple_form_for [current_user, @blog] do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :subject
-    = f.input :user_id
 
   .form-actions
     = f.button :submit

@@ -1,3 +1,5 @@
+p.notice
+ =notice
 h1 Listing blogs
 
 table
@@ -5,19 +7,14 @@ table
     tr
       th Subject
       th User
-      th
-      th
-      th
 
   tbody
     - @blogs.each do |blog|
       tr
         td = blog.subject
-        td = blog.user_id
-        td = link_to 'Show', blog
-        td = link_to 'Edit', edit_blog_path(blog)
-        td = link_to 'Destroy', blog, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Show', user_blog_path(blog.user,blog)
+        td = link_to 'Edit', edit_user_blog_path(blog.user, blog)
+        td = link_to 'Destroy', user_blog_path(blog.user,blog), method: :delete
 
 br
-
-= link_to 'New Blog', new_blog_path
+= link_to 'New Blog', new_user_blog_path

@@ -3,4 +3,6 @@ p.notice
   = notice
 p.alert
   = alert
+= link_to 'New blog', new_user_blog_path(current_user)
+br
 = link_to 'Sign out', destroy_user_session_path, method: "delete"

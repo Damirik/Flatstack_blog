@@ -2,7 +2,7 @@ h1 Editing blog
 
 == render 'form'
 
-= link_to 'Show', @blog
+= link_to 'Show', user_blog_path(@blog.user,@blog)
 '|
-= link_to 'Back', blogs_path
+= link_to 'Back', user_blogs_path(current_user)
 

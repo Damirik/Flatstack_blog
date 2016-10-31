@@ -1,12 +1,10 @@
-p#notice = notice
+p.notice
+ = notice
 
 p
   strong Subject:
   = @blog.subject
-p
-  strong User:
-  = @blog.user_id
 
-= link_to 'Edit', edit_blog_path(@blog)
-'|
-= link_to 'Back', blogs_path
+= link_to 'Edit', edit_user_blog_path(@blog.user, @blog)
+br
+= link_to 'Back', user_blogs_path(current_user)
