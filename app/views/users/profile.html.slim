@@ -3,9 +3,21 @@ h1 Welcome #{current_user.full_name}
 p.notice
   = notice
 
-p.alert
-  = alert
+h1 Your blogs
 
-= link_to 'Your blogs', user_blogs_path(current_user)
+table
+  thead
+    tr
+      th Subject
+
+  tbody
+    - @blogs.each do |blog|
+      tr
+        td = link_to blog.subject, user_blog_path(blog.user,blog)
+        td = link_to 'Edit', edit_user_blog_path(blog.user, blog)
+        td = link_to 'Destroy', user_blog_path(blog.user,blog), method: :delete
+
+br
+= link_to 'New Blog', new_user_blog_path(current_user)
 br
 = link_to 'Sign out', destroy_user_session_path, method: "delete"

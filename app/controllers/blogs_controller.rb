@@ -2,10 +2,6 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  def index
-    @blogs = Blog.all
-  end
-
   def show
     @posts = Post.where(blog_id: @blog.id)
   end
@@ -21,7 +17,7 @@ class BlogsController < ApplicationController
     @blog = current_user.blogs.new(blog_params)
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to user_blogs_path,
+        format.html { redirect_to user_root_path,
         notice: 'Blog was successfully created.' }
       else
         format.html { render :new }
@@ -32,7 +28,7 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to user_blogs_path,
+        format.html { redirect_to user_root_path,
         notice: 'Blog was successfully updated.' }
       else
         format.html { render :edit }
@@ -43,7 +39,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to user_blogs_path(current_user),
+      format.html { redirect_to user_root_path,
       notice: 'Blog was successfully destroyed.' }
     end
   end

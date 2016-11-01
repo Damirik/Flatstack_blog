@@ -16,6 +16,6 @@ table
 
 = link_to 'Edit', edit_user_blog_path(@blog.user, @blog)
 br
-= link_to 'Back', user_blogs_path(current_user)
+= link_to 'Back', user_root_path
 br
 = link_to 'New Post', new_post_path(blog_id: @blog.id)
