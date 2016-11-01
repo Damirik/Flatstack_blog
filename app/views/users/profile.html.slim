@@ -1,8 +1,11 @@
 h1 Welcome #{current_user.full_name}
+
 p.notice
   = notice
+
 p.alert
   = alert
-= link_to 'New blog', new_user_blog_path(current_user)
+
+= link_to 'Your blogs', user_blogs_path(current_user)
 br
 = link_to 'Sign out', destroy_user_session_path, method: "delete"
