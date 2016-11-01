@@ -1,11 +1,9 @@
-= simple_form_for(@post) do |f|
+= simple_form_for [@post] do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :title
     = f.input :content
-    = f.input :user_id
-    = f.input :blog_id
-
+    = f.hidden_field :blog_id, value: params[:blog_id]
   .form-actions
     = f.button :submit

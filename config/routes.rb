@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get 'users/profile', as: 'user_root'
   devise_for :users, controllers: { registrations: "users/registrations" }
   resources :users do
-    resources :blogs do
-      resources :posts
-    end
+    resources :blogs
   end
+  resources :posts
+
 end

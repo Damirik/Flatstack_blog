@@ -1,3 +1,6 @@
+p.notice
+ =notice
+
 h1 Listing posts
 
 table
@@ -5,23 +8,17 @@ table
     tr
       th Title
       th Content
-      th User
-      th Blog
-      th
-      th
-      th
+      th Id
 
   tbody
     - @posts.each do |post|
       tr
         td = post.title
         td = post.content
-        td = post.user_id
         td = post.blog_id
         td = link_to 'Show', post
         td = link_to 'Edit', edit_post_path(post)
-        td = link_to 'Destroy', post, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Destroy', post, method: :delete
 
 br
-
 = link_to 'New Post', new_post_path
