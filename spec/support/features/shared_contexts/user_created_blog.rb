@@ -4,7 +4,7 @@ shared_context "current user created blog" do
 
   background do
     visit user_root_path
-    click_on 'New blog'
+    click_on 'New Blog'
     fill_in 'Subject', with: blog.subject
     click_button 'Create Blog'
   end
