@@ -7,6 +7,7 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @posts = Post.where(blog_id: @blog.id)
   end
 
   def new

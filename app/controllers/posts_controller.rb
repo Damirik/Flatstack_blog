@@ -17,9 +17,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @blog = Blog.find_by(params[:id])
     respond_to do |format|
       if @post.save
-        format.html { redirect_to user_blogs_path(current_user),
+        format.html { redirect_to user_blog_path(@blog.user, @blog),
         notice: 'Post was successfully created.' }
       else
         format.html { render :new }
@@ -28,9 +29,10 @@ class PostsController < ApplicationController
   end
 
   def update
+    @blog = Blog.find_by(params[:id])
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to user_blogs_path(current_user),
+        format.html { redirect_to user_blog_path(@blog.user, @blog),
         notice: 'Post was successfully updated.' }
       else
         format.html { render :edit }

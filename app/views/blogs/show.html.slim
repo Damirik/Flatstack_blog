@@ -1,9 +1,18 @@
 p.notice
  = notice
 
-p
-  strong Subject:
-  = @blog.subject
+h1 = @blog.subject
+
+table
+  thead
+    tr
+      th Posts
+
+  tbody
+    - @posts.each do |post|
+      tr
+        td = link_to post.title, post
+        td = post.created_at
 
 = link_to 'Edit', edit_user_blog_path(@blog.user, @blog)
 br
