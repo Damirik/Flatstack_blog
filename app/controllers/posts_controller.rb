@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :destroy]
 
   def show
   end
 
   def new
-    @post = Post.new
     @blog = Blog.find_by(params[:id])
+    @post = @blog.posts.new
   end
 
   def edit
@@ -14,8 +15,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @blog = Blog.find_by(params[:id])
-    @post.user_id = current_user.id
+    @blog = @post.blog
+    @post.user = current_user
     respond_to do |format|
       if @post.save
         format.html { redirect_to user_blog_path(@blog.user, @blog),
@@ -27,10 +28,9 @@ class PostsController < ApplicationController
   end
 
   def update
-    @blog = Blog.find_by(params[:id])
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to user_blog_path(@blog.user, @blog),
+        format.html { redirect_to user_root_path,
         notice: 'Post was successfully updated.' }
       else
         format.html { render :edit }
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to user_blogs_path(current_user),
+      format.html { redirect_to user_blog_path(@blog.user, @blog),
       notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
@@ -50,6 +50,10 @@ class PostsController < ApplicationController
   private
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def set_blog
+      @blog = @post.blog
     end
 
     def post_params

@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @posts = Post.where(blog_id: @blog.id)
+    @posts = @blog.posts
   end
 
   def new
