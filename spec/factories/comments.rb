@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :comment do
-    body "MyString"
-    post_id 1
+    body "TestComment"
+    post
   end
 end
