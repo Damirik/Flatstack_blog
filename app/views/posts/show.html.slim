@@ -16,14 +16,12 @@ h2 Comments
     br
     strong Comment:
     = comment.body
+    strong Comment:
+    = link_to 'Delete comment', [comment.post, comment], method: :delete
 
 
 h2 Add a comment:
-= simple_form_for [@post, @post.comments.build] do |f|
-  .form-inputs
-    = f.input :body
-  .form-actions
-    = f.button :submit
+==render 'comment_form'
 
 = link_to 'Edit', edit_post_path(blog_id: @blog.id)
 br

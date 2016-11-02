@@ -43,7 +43,6 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to user_blog_path(@blog.user, @blog),
       notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
