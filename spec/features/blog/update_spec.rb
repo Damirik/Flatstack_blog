@@ -11,11 +11,11 @@ feature "Update blog" do
     fill_form(:blog, :edit, subject: "NewTestSubject" )
     click_button "Update Blog"
 
-    expect(page).to have_content("NewTestSubject")
+    expect(page).to have_content("Blog was successfully updated")
   end
 
   scenario "User enter empty subject" do
-    fill_form(:user, :edit, subject: "")
+    fill_form(:blog, :edit, subject: "")
     click_on "Update Blog"
 
     expect(page).to have_content("can't be blank")
