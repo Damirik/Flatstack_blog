@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :blogs
   end
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 end

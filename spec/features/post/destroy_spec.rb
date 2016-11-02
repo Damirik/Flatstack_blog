@@ -6,10 +6,9 @@ feature "Delete post" do
     visit post_path(post)
   end
 
-  scenario "User updates post with valid data" do
+  scenario "User destroyed post" do
     click_on 'Destroy'
 
     expect(page).to have_content("Post was successfully destroyed")
   end
-
 end

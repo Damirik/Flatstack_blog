@@ -8,6 +8,23 @@ p
   strong Content:
   = @post.content
 
+h2 Comments
+- @post.comments.each do |comment|
+  p
+    strong By user:
+    = comment.user_email
+    br
+    strong Comment:
+    = comment.body
+
+
+h2 Add a comment:
+= simple_form_for [@post, @post.comments.build] do |f|
+  .form-inputs
+    = f.input :body
+  .form-actions
+    = f.button :submit
+
 = link_to 'Edit', edit_post_path(blog_id: @blog.id)
 br
 = link_to 'Back', user_blog_path(@blog.user, @blog)
