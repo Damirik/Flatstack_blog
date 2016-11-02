@@ -1,10 +1,26 @@
+p.notice
+  = notice
+
 - if signed_in?
   = link_to "Profile", user_root_path(current_user)
+  br
   = link_to "Settings", edit_user_registration_path
+  br
   = link_to "Sign out", destroy_user_session_path, method: "delete"
 - else
   = link_to "Sign in", new_user_session_path
-p.notice
-  = notice
+
+table
+  thead
+    tr
+      th All blogs
+      th Written by
+  tbody
+    - @blogs.each do |blog|
+      tr
+        td = link_to blog.subject, user_blog_path(blog.user,blog)
+        td = blog.user.full_name
+
+
 
 
