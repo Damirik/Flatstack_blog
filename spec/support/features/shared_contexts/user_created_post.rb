@@ -3,7 +3,8 @@ shared_context "current user created post" do
   let(:post) { create :post }
 
   background do
-    visit user_blog_path(blog.user, blog)
+    visit user_root_path
+    click_on blog.subject
     click_on 'New Post'
     fill_in 'Title', with: post.title
     fill_in 'Content', with: post.content

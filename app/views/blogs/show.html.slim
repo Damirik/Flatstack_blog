@@ -11,12 +11,15 @@ table
   tbody
     - @posts.each do |post|
       tr
-        td = post.title
+        td = link_to post.title, post
         td = post.created_at
-        td = link_to 'Show', post
 
-= link_to 'Edit', edit_user_blog_path(@blog.user, @blog)
-br
+
+- if current_user.id == @blog.user.id
+ = link_to 'Edit', edit_user_blog_path(@blog.user, @blog)
+ br
+ = link_to 'New Post', new_post_path(blog_id: @blog.id)
+ br
 = link_to 'Back', user_root_path
-br
-= link_to 'New Post', new_post_path(blog_id: @blog.id)
+
+

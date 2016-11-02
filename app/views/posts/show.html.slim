@@ -16,15 +16,17 @@ h2 Comments
     br
     strong Comment:
     = comment.body
-    strong Comment:
-    = link_to 'Delete comment', [comment.post, comment], method: :delete
+    - if current_user.email == comment.user_email
+     =link_to 'Delete comment', [comment.post, comment], method: :delete
 
 
 h2 Add a comment:
 ==render 'comment_form'
-
-= link_to 'Edit', edit_post_path(blog_id: @blog.id)
+- if current_user.id == @post.user.id
+ = link_to 'Edit', edit_post_path(blog_id: @blog.id)
+ br
+ = link_to 'Destroy', post_path, method: :delete
 br
 = link_to 'Back', user_blog_path(@blog.user, @blog)
-br
-= link_to 'Destroy', post_path, method: :delete
+
+
