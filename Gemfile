@@ -1,22 +1,27 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0.0'
+gem 'pg'
 
+#assets
 gem 'autoprefixer-rails'
-gem 'puma'
-gem 'slim-rails'
-gem 'simple_form'
 gem 'sass-rails', '~> 5.0.0'
 gem 'uglifier'
 gem 'jquery-rails'
-gem 'devise'
-gem 'rubocop', require: false
-gem 'pg'
 gem 'foundation-rails'
+gem 'coffee-rails'
+
+
+#views
 gem 'active_link_to'
 gem 'metamagic'
-gem 'coffee-rails'
+gem 'slim-rails'
+gem 'simple_form'
+
+#all other gems
+gem 'puma'
 gem 'decent_exposure'
+gem 'devise'
 
 group :test do
   gem 'capybara'

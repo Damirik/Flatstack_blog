@@ -1,0 +1,26 @@
+.row
+  .columns
+    h1 #{current_user.full_name} blogs
+
+.row
+  .medium-5.columns
+    - if @blogs.empty?
+        p No blogs
+    - else
+      table
+        thead
+          tr
+            th Subject
+
+        tbody
+          - @blogs.each do |blog|
+            tr
+            td = link_to blog.subject, user_blog_path(blog.user,blog)
+            td = link_to 'Edit', edit_user_blog_path(blog.user, blog)
+            td = link_to 'Destroy', user_blog_path(blog.user,blog), method: :delete
+
+  .medium-5.medium-offset-1.columns.end
+    - if @blogs.empty?
+      = link_to 'Create your first blog', new_user_blog_path(current_user)
+    - else
+      = link_to 'New Blog', new_user_blog_path(current_user)
