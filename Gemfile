@@ -16,6 +16,7 @@ gem 'foundation-rails'
 gem 'active_link_to'
 gem 'metamagic'
 gem 'coffee-rails'
+gem 'decent_exposure'
 
 group :test do
   gem 'capybara'
