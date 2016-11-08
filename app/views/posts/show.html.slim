@@ -1,32 +1,49 @@
-p.notice
- = notice
+.row
+  .columns
+    h2 = title("#{@post.title}")
 
-p
-  strong Title:
-  = @post.title
-p
-  strong Content:
-  = @post.content
+.row
+  .medium-5.columns
+    p
+      strong Title:
+      = @post.title
+    p
+      strong Content:
+      = @post.content
 
-h2 Comments
-- @post.comments.each do |comment|
-  p
-    strong By user:
-    = comment.user_email
-    br
-    strong Comment:
-    = comment.body
-    - if current_user.email == comment.user_email
-     =link_to 'Delete comment', [comment.post, comment], method: :delete
+    h2 Comments
+    - if @post.comments.empty?
+      p No comments here
+    - else
+    - @post.comments.each do |comment|
+      p
+        strong By user:
+        = comment.user_email
+        br
+        strong Comment:
+        = comment.body
+        - if current_user.email == comment.user_email
+         =link_to 'Delete comment', [comment.post, comment], method: :delete
+  .medium-5.medium-offset-1.columns.end
+    - if current_user.id == @post.user.id
+     = link_to 'Edit', edit_post_path(blog_id: @blog.id)
+     br
+     = link_to 'Destroy', post_path, method: :delete
+     br
+    = link_to 'Back', user_blog_path(@blog.user, @blog)
+
+.row
+  .columns
+    h2 Add a comment:
+
+.row
+  .medium-5.columns
+    = simple_form_for [@post, @post.comments.build] do |f|
+      .form-inputs
+        = f.input :body
+      .form-actions
+        = f.button :submit
 
 
-h2 Add a comment:
-==render 'comment_form'
-- if current_user.id == @post.user.id
- = link_to 'Edit', edit_post_path(blog_id: @blog.id)
- br
- = link_to 'Destroy', post_path, method: :delete
-br
-= link_to 'Back', user_blog_path(@blog.user, @blog)
 
 

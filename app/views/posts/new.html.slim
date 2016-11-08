@@ -1,5 +1,18 @@
-h1 New post
+.row
+  .columns
+    h2 = title("New post")
 
-== render 'form'
+.row
+  .medium-5.columns
+    = simple_form_for [@post] do |f|
+      = f.error_notification
 
-= link_to 'Back', user_blog_path(@blog.user, @blog)
+      .form-inputs
+        = f.input :title
+        = f.input :content
+        = f.hidden_field :blog_id, value: params[:blog_id]
+      .form-actions
+        = f.button :submit
+
+  .medium-5.medium-offset-1.columns.end
+    = link_to 'Back', user_blog_path(@blog.user, @blog)

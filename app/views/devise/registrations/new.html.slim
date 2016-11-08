@@ -1,16 +1,21 @@
-h2 Sign up
-= simple_form_for resource,
-  as: resource_name,
-  url: registration_path(resource_name) do |f|
+.row
+  .columns
+    h2 = title("Sign up")
 
-  .form-inputs
-  = f.input :full_name, required: true, autofocus: true
-  = f.input :email, required: true
-  = f.input :password, required: true
-  = f.input :password_confirmation, required: true
+.row
+  .medium-5.columns
+    = simple_form_for resource,
+        as: resource_name,
+        url: registration_path(resource_name) do |f|
 
+      .form-inputs
+        = f.input :full_name, required: true, autofocus: true
+        = f.input :email, required: true
+        = f.input :password, required: true
+        = f.input :password_confirmation, required: true
 
-  .form-actions
-  = f.button :submit, "Sign up"
+      .form-actions
+        = f.button :submit, "Sign up"
 
-= render "devise/shared/links"
+  .medium-5.medium-offset-1.columns.end
+  = render "devise/shared/links"

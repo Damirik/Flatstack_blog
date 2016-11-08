@@ -19,7 +19,8 @@ gem 'devise'
 gem 'rubocop', require: false
 gem 'pg'
 gem 'foundation-rails'
-
+gem 'active_link_to'
+gem 'metamagic'
 
 group :test do
   gem 'capybara'

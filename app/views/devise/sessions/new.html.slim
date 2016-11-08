@@ -1,16 +1,20 @@
-h2 Sign in
+.row
+  .columns
+    h2 = title("Sign in")
 
-= simple_form_for resource,
-      as: resource_name,
-      url: session_path(resource_name) do |f|
+.row
+  .medium-5.columns
+    = simple_form_for resource,
+        as: resource_name,
+        url: session_path(resource_name) do |f|
 
-  .form-inputs
-  = f.input :email, required: false, autofocus: true
-  = f.input :password, required: false
-  = f.input :remember_me, as: :boolean
+      .form-inputs
+      = f.input :email, required: false, autofocus: true
+      = f.input :password, required: false
+      = f.input :remember_me, as: :boolean
 
-  .form-actions
-  = f.button :submit, "Sign in"
+      .form-actions
+      = f.button :submit, "Sign in"
 
-
-= render "devise/shared/links"
+  .medium-5.medium-offset-1.columns.end
+    = render "devise/shared/links"

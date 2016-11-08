@@ -1,0 +1,27 @@
+doctype html
+
+html class="no-js" lang="en"
+
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta name="robots" content="NOODP,NOYDIR"
+
+    = metamagic site: "MyBlog", title: %i(title site), separator: " - "
+    = csrf_meta_tags
+
+    = stylesheet_link_tag :application
+
+    = javascript_tag "window.App = {}"
+
+
+  body
+    = render "navigation"
+    = render "messages"
+
+    main.container
+      = yield
+
+    = render "footer"
+
+    = javascript_include_tag :application

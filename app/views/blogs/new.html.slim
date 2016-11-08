@@ -1,5 +1,17 @@
-h1 New blog
+.row
+  .columns
+    h2 = title("New Blog")
 
-== render 'form'
+.row
+  .medium-5.columns
+    = simple_form_for [current_user, @blog] do |f|
+      = f.error_notification
 
-= link_to 'Back', user_root_path
+      .form-inputs
+        = f.input :subject
+
+      .form-actions
+       = f.button :submit
+
+  .medium-5.medium-offset-1.columns.end
+    = link_to 'Back', user_root_path

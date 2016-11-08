@@ -1,0 +1,5 @@
+.top-bar-left
+  ul.menu
+    li = link_to "MyBlog", user_root_path
+    - if user_signed_in?
+      = active_link_to "AllBlogs", root_path, active: :exclusive, wrap_tag: :li

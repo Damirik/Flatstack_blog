@@ -1,8 +1,21 @@
-h1 Editing post
+.row
+  .columns
+    h2 = title("Edit #{@post.title}")
 
-== render 'form'
+.row
+  .medium-5.columns
+    = simple_form_for [@post] do |f|
+      = f.error_notification
 
-= link_to 'Show', @post
-br
-= link_to 'Back', user_root_path
+      .form-inputs
+        = f.input :title
+        = f.input :content
+        = f.hidden_field :blog_id, value: params[:blog_id]
+      .form-actions
+        = f.button :submit
+
+  .medium-5.medium-offset-1.columns.end
+    = link_to 'Show', @post
+    br
+    = link_to 'Back', user_root_path
 

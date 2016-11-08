@@ -1,25 +1,19 @@
-p.notice
-  = notice
+.row
+  .columns
+    h2 = title("All Blogs")
 
-- if signed_in?
-  = link_to "Profile", user_root_path(current_user)
-  br
-  = link_to "Settings", edit_user_registration_path
-  br
-  = link_to "Sign out", destroy_user_session_path, method: "delete"
-- else
-  = link_to "Sign in", new_user_session_path
-
-table
-  thead
-    tr
-      th All blogs
-      th Written by
-  tbody
-    - @blogs.each do |blog|
-      tr
-        td = link_to blog.subject, user_blog_path(blog.user,blog)
-        td = blog.user.full_name
+.row
+  .medium-7.columns
+    table
+      thead
+        tr
+          th Blog title
+          th Written by
+      tbody
+        - @blogs.each do |blog|
+          tr
+            td = link_to blog.subject, user_blog_path(blog.user,blog)
+            td = blog.user.full_name
 
 
 

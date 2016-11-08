@@ -1,25 +1,26 @@
-p.notice
- = notice
+.row
+  .columns
+    h2 = title("#{@blog.subject}")
 
-h1 = @blog.subject
+.row
+  .medium-5.columns
+    table
+      thead
+        tr
+          th Posts
+          th Created at
+      tbody
+        - @posts.each do |post|
+          tr
+            td = link_to post.title, post
+            td = post.created_at
 
-table
-  thead
-    tr
-      th Posts
-      th Created at
-  tbody
-    - @posts.each do |post|
-      tr
-        td = link_to post.title, post
-        td = post.created_at
-
-
-- if current_user.id == @blog.user.id
- = link_to 'Edit', edit_user_blog_path(@blog.user, @blog)
- br
- = link_to 'New Post', new_post_path(blog_id: @blog.id)
- br
-= link_to 'Back', user_root_path
+  .medium-5.medium-offset-1.columns.end
+    - if current_user.id == @blog.user.id
+     = link_to 'Edit', edit_user_blog_path(@blog.user, @blog)
+     br
+     = link_to 'New Post', new_post_path(blog_id: @blog.id)
+     br
+    = link_to 'Back', user_root_path
 
 
