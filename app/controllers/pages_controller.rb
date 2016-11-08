@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  def home
+  def index
     @blogs = Blog.all
   end
 end
