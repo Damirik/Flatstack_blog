@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'rubocop', require: false
 gem 'pg'
+gem 'foundation-rails'
 
 
 group :test do
