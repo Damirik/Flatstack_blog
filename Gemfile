@@ -4,7 +4,6 @@ gem 'rails', '~> 5.0.0'
 gem 'pg'
 
 #assets
-gem 'autoprefixer-rails'
 gem 'sass-rails', '~> 5.0.0'
 gem 'uglifier'
 gem 'jquery-rails'
