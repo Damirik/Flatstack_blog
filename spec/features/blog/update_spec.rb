@@ -8,7 +8,7 @@ feature "Update blog" do
   end
 
   scenario "User updates blog with valid data" do
-    fill_form(:blog, :edit, subject: "NewTestSubject" )
+    fill_form(:blog, :edit, subject: "NewTestSubject")
     click_button "Update Blog"
 
     expect(page).to have_content("Blog was successfully updated")

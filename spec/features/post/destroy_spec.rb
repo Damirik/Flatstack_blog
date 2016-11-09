@@ -9,7 +9,7 @@ feature "Delete post" do
   end
 
   scenario "User destroyed post" do
-    click_on 'Destroy'
+    click_on "Destroy"
 
     expect(page).to have_content("Post was successfully destroyed")
   end

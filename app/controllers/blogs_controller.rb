@@ -8,7 +8,6 @@ class BlogsController < ApplicationController
   end
 
   def new
-
   end
 
   def edit
@@ -17,7 +16,7 @@ class BlogsController < ApplicationController
   def create
     blog.user_id = current_user.id
     if blog.save
-      redirect_to user_root_path, notice: 'Blog was successfully created.'
+      redirect_to user_root_path, notice: "Blog was successfully created."
     else
       render :new
     end
@@ -25,7 +24,7 @@ class BlogsController < ApplicationController
 
   def update
     if blog.update(blog_params)
-       redirect_to user_root_path, notice: 'Blog was successfully updated.'
+      redirect_to user_root_path, notice: "Blog was successfully updated."
     else
       render :edit
     end
@@ -33,12 +32,12 @@ class BlogsController < ApplicationController
 
   def destroy
     blog.destroy
-    redirect_to user_root_path, notice: 'Blog was successfully destroyed.'
+    redirect_to user_root_path, notice: "Blog was successfully destroyed."
   end
 
   private
-    def blog_params
-      params.require(:blog).permit(:subject, :user_id)
-    end
 
+  def blog_params
+    params.require(:blog).permit(:subject, :user_id)
+  end
 end

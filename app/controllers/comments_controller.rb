@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   expose(:post)
   expose(:comment)
 
@@ -9,7 +8,7 @@ class CommentsController < ApplicationController
     if comment.save
       redirect_to post_path(post)
     else
-      redirect_to post_path(post), notice: 'Comment can not be empty'
+      redirect_to post_path(post), notice: "Comment can not be empty"
     end
   end
 
@@ -19,8 +18,8 @@ class CommentsController < ApplicationController
   end
 
   private
-    def comment_params
-      params.require(:comment).permit(:body, :post_id)
-    end
 
+  def comment_params
+    params.require(:comment).permit(:body, :post_id)
+  end
 end
