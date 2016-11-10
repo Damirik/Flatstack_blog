@@ -1,15 +1,14 @@
 class CommentsController < ApplicationController
+  respond_to :html
+
   expose :post
   expose :comment
 
   def create
     comment.post = post
     comment.user = current_user
-    if comment.save
-      redirect_to post
-    else
-      redirect_to post, notice: "Comment can not be empty"
-    end
+    comment.save
+    respond_with comment, location: post
   end
 
   def destroy

@@ -271,6 +271,7 @@ DEPENDENCIES
   pry-rails
   puma
   rails (~> 5.0.0)
+  responders
   rspec-rails
   rubocop
   rubocop-rspec

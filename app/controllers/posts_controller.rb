@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  respond_to :html
+
   before_action :authenticate_user!
 
   expose :blog
@@ -15,24 +17,18 @@ class PostsController < ApplicationController
 
   def create
     post.user = current_user
-    if post.save
-      redirect_to user_blog_path(post.blog.user, post.blog), notice: "Post was successfully created."
-    else
-      render :new
-    end
+    post.save
+    respond_with post, location: user_blog_path(post.blog.user, post.blog)
   end
 
   def update
-    if post.update(post_params)
-      redirect_to user_root_path, notice: "Post was successfully updated."
-    else
-      render :edit
-    end
+    post.update(post_params)
+    respond_with post, location: user_blog_path(post.blog.user, post.blog)
   end
 
   def destroy
     post.destroy
-    redirect_to user_blog_path(blog.user, blog), notice: "Post was successfully destroyed."
+    respond_with post, location: user_blog_path(post.blog.user, post.blog)
   end
 
   private

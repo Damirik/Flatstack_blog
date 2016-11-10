@@ -18,11 +18,11 @@
     - post.comments.each do |comment|
       p
         strong By user:
-        = comment.user_email
+        = comment.user.email
         br
         strong Comment:
         = comment.body
-        - if current_user.email == comment.user_email
+        - if current_user.id == comment.user_id
          =link_to 'Delete comment', [comment.post, comment], method: :delete
   .medium-5.medium-offset-1.columns.end
     - if current_user.id == post.user.id
@@ -30,7 +30,7 @@
      br
      = link_to 'Destroy', post_path, method: :delete
      br
-    = link_to 'Back', user_blog_path(blog.user, blog)
+
 
 .row
   .columns

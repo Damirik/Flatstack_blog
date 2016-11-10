@@ -20,6 +20,7 @@ gem "simple_form"
 gem "puma"
 gem "decent_exposure"
 gem "devise"
+gem "responders"
 
 group :test do
   gem "capybara"
