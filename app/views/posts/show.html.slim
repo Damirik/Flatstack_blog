@@ -26,7 +26,7 @@
          =link_to 'Delete comment', [comment.post, comment], method: :delete
   .medium-5.medium-offset-1.columns.end
     - if current_user.id == post.user.id
-     = link_to 'Edit', edit_post_path(blog_id: blog.id)
+     = link_to 'Edit', edit_post_path
      br
      = link_to 'Destroy', post_path, method: :delete
      br

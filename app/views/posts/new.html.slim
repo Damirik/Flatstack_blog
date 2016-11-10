@@ -10,7 +10,7 @@
       .form-inputs
         = f.input :title
         = f.input :content
-        = f.hidden_field :blog_id, value: params[:blog_id]
+        = f.hidden_field :blog_id, value: blog.id
       .form-actions
         = f.button :submit
 
