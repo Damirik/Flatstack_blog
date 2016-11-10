@@ -1,5 +1,6 @@
 class UserBlogsController < ApplicationController
+  expose :blogs, -> { current_user.blogs }
+
   def index
-    @blogs = current_user.blogs
   end
 end

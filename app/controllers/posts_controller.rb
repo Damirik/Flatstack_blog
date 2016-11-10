@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
-  expose(:blog)
-  expose(:post)
+  expose :blog
+  expose :post
 
   def show
   end

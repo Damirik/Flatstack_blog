@@ -1,20 +1,20 @@
 class CommentsController < ApplicationController
-  expose(:post)
-  expose(:comment)
+  expose :post
+  expose :comment
 
   def create
     comment.post = post
-    comment.user_email = current_user.email
+    comment.user = current_user
     if comment.save
-      redirect_to post_path(post)
+      redirect_to post
     else
-      redirect_to post_path(post), notice: "Comment can not be empty"
+      redirect_to post, notice: "Comment can not be empty"
     end
   end
 
   def destroy
     comment.destroy
-    redirect_to post_path(post)
+    redirect_to post
   end
 
   private

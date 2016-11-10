@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
+  expose :blogs, -> { Blog.all }
+
   def index
-    @blogs = Blog.all
   end
 end

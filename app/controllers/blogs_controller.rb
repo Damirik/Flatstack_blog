@@ -1,8 +1,8 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
 
-  expose(:blog)
-  expose(:posts) { blog.posts }
+  expose :blog
+  expose :posts, from: :blog
 
   def show
   end
@@ -14,7 +14,7 @@ class BlogsController < ApplicationController
   end
 
   def create
-    blog.user_id = current_user.id
+    blog.user = current_user
     if blog.save
       redirect_to user_root_path, notice: "Blog was successfully created."
     else
