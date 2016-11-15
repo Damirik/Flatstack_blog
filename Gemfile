@@ -21,6 +21,7 @@ gem "puma"
 gem "decent_exposure"
 gem "devise"
 gem "responders"
+gem "pundit"
 
 group :test do
   gem "capybara"
