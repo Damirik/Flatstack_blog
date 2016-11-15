@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
-  respond_to :html
-
   before_action :authenticate_user!
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   expose :blog
   expose :post
@@ -32,6 +31,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def authorize_user!
+    authorize(post, :authorized?)
+  end
 
   def post_params
     params.require(:post).permit(:title, :content, :user_id, :blog_id)

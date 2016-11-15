@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  respond_to :html
+  before_action :authorize_user!, only: :destroy
 
   expose :post
   expose :comment
@@ -17,6 +17,10 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def authorize_user!
+    authorize(comment, :authorized?)
+  end
 
   def comment_params
     params.require(:comment).permit(:body, :post_id)
