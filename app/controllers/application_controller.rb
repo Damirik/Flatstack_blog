@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def permission_denied
-   flash[:danger] = 'Need to authorize'
-   redirect_to root_path
+    flash[:danger] = "Need to authorize"
+    redirect_to root_path
   end
 end
