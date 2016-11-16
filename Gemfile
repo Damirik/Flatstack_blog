@@ -24,6 +24,7 @@ gem "responders"
 gem "pundit"
 gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
 gem "draper"
+gem 'decent_decoration'
 
 group :test do
   gem "capybara"
