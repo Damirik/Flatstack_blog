@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    authorize post
   end
 
   def edit

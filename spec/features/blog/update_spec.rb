@@ -4,7 +4,9 @@ feature "Update blog" do
   include_context "current user created blog"
 
   background do
-    visit edit_user_blog_path(blog.user, blog)
+    visit user_root_path
+    click_on blog.subject
+    click_on "Edit"
   end
 
   scenario "User updates blog with valid data" do

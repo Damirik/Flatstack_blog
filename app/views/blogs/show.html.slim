@@ -4,16 +4,22 @@
 
 .row
   .medium-5.columns
-    table
-      thead
-        tr
-          th Posts
-          th Created at
-      tbody
-        - posts.each do |post|
+    - if posts.empty?
+        p No posts
+        = link_to 'Create your first post', new_post_path(blog_id: blog.id)
+    - else
+      table
+        thead
           tr
-            td = link_to post.title, post
-            td = post.created_at
+            th Posts
+            th Created at
+            th Comments count
+        tbody
+          - posts.each do |post|
+            tr
+              td = link_to post.title, post
+              td = post.created_at
+              td = post.comments.count
 
   .medium-5.medium-offset-1.columns.end
     - if current_user.id == blog.user.id

@@ -29,5 +29,10 @@ en:
     destroy:
       notice: "%{resource_name} was successfully destroyed."
       alert: "%{resource_name} could not be destroyed."
-
+en:
+ pundit:
+   default: 'You cannot perform this action.'
+   post_policy:
+     update?: 'You cannot edit this post!'
+     create?: 'You cannot create posts!'
 
