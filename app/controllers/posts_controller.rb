@@ -2,14 +2,13 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
-  expose :blog
+  expose_decorated :blog
   expose_decorated :post
 
   def show
   end
 
   def new
-    authorize post
   end
 
   def edit
