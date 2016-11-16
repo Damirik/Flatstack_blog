@@ -22,8 +22,10 @@
         br
         strong Comment:
         = comment.body
-        =link_to 'Delete comment', [comment.post, comment], method: :delete
+        - if policy(comment).authorized?
+         =link_to 'Delete comment', [comment.post, comment], method: :delete
   .medium-5.medium-offset-1.columns.end
+    - if policy(post).authorized?
      = link_to 'Edit', edit_post_path(post)
      br
      = link_to 'Destroy', post_path, method: :delete

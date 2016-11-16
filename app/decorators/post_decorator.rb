@@ -1,4 +1,4 @@
-class PostDecorator < Draper::Decorator
+class PostDecorator < ApplicationDecorator
   delegate :title, :content, :user_id, :to_model
   delegate :user_id, to: :user
 

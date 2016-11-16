@@ -1,4 +1,4 @@
-class CommentDecorator < Draper::Decorator
+class CommentDecorator < ApplicationDecorator
   delegate :post_id, to: :post
   delegate :user_id, to: :user
 

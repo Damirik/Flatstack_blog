@@ -1,4 +1,4 @@
-class UserDecorator < Draper::Decorator
+class UserDecorator < ApplicationDecorator
   delegate :full_name, :email
 
   def full_name_with_email

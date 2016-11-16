@@ -22,7 +22,7 @@
               td = post.comments.count
 
   .medium-5.medium-offset-1.columns.end
-    - if current_user == blog.user
+    - if policy(blog).authorized?
      = link_to 'New Post', new_blog_post_path(blog)
      br
     = link_to 'Back', user_root_path

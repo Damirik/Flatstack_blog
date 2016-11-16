@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize_user!, only: [:edit, :update, :destroy]
+  before_action :authorize_user!, except: :show
 
   expose :blog
   expose_decorated :post
