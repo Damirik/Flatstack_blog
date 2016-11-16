@@ -5,7 +5,6 @@ feature "Update blog" do
 
   background do
     visit user_root_path
-    click_on blog.subject
     click_on "Edit"
   end
 

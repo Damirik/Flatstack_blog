@@ -15,11 +15,4 @@ feature "Update post" do
 
     expect(page).to have_content("Post was successfully updated")
   end
-
-  scenario "User enter empty post title" do
-    fill_form(:post, :edit, title: "")
-    click_on "Update Post"
-
-    expect(page).to have_content("can't be blank")
-  end
 end
