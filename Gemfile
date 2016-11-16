@@ -22,9 +22,9 @@ gem "decent_exposure"
 gem "devise"
 gem "responders"
 gem "pundit"
-gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
-gem "draper"
-gem 'decent_decoration'
+gem "activemodel-serializers-xml", github: "rails/activemodel-serializers-xml"
+gem "draper", github: "audionerd/draper", branch: "rails5"
+gem "decent_decoration"
 
 group :test do
   gem "capybara"
