@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   def create
     post.user = current_user
     post.blog = blog
-    post.save
+    post.save if authorize post
     respond_with post
   end
 

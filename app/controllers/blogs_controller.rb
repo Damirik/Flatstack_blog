@@ -17,12 +17,12 @@ class BlogsController < ApplicationController
   def create
     blog.user = current_user
     blog.save
-    respond_with blog, location: user_root_path
+    respond_with blog
   end
 
   def update
     blog.update(blog_params)
-    respond_with blog, location: user_root_path
+    respond_with blog
   end
 
   def destroy
