@@ -22,6 +22,8 @@ gem "decent_exposure"
 gem "devise"
 gem "responders"
 gem "pundit"
+gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
+gem "draper"
 
 group :test do
   gem "capybara"
