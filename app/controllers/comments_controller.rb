@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 
   def destroy
     comment.destroy
-    redirect_to post
+    respond_with comment, location: post
   end
 
   private
