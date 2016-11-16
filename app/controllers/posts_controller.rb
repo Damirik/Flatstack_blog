@@ -2,8 +2,9 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
-  expose_decorated :blog
+  expose :blog
   expose_decorated :post
+  expose(:comment) { post.comments.build }
 
   def show
   end
@@ -16,18 +17,19 @@ class PostsController < ApplicationController
 
   def create
     post.user = current_user
+    post.blog = blog
     post.save
-    respond_with post, location: user_blog_path(post.blog.user, post.blog)
+    respond_with post
   end
 
   def update
     post.update(post_params)
-    respond_with post, location: user_blog_path(post.blog.user, post.blog)
+    respond_with post
   end
 
   def destroy
     post.destroy
-    respond_with post, location: user_blog_path(post.blog.user, post.blog)
+    respond_with post, location: user_root_path
   end
 
   private

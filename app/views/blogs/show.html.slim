@@ -6,7 +6,7 @@
   .medium-5.columns
     - if posts.empty?
         p No posts
-        = link_to 'Create your first post', new_post_path(blog_id: blog.id)
+        = link_to 'Create your first post', new_blog_post_path(blog)
     - else
       table
         thead
@@ -22,10 +22,8 @@
               td = post.comments.count
 
   .medium-5.medium-offset-1.columns.end
-    - if current_user.id == blog.user.id
-     = link_to 'Edit', edit_user_blog_path(blog.user, blog)
-     br
-     = link_to 'New Post', new_post_path(blog_id: blog.id)
+    - if current_user == blog.user
+     = link_to 'New Post', new_blog_post_path(blog)
      br
     = link_to 'Back', user_root_path
 

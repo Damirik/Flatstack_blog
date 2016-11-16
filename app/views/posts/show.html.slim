@@ -22,14 +22,11 @@
         br
         strong Comment:
         = comment.body
-        - if current_user.id == comment.user_id
-         =link_to 'Delete comment', [comment.post, comment], method: :delete
+        =link_to 'Delete comment', [comment.post, comment], method: :delete
   .medium-5.medium-offset-1.columns.end
-    - if current_user.id == post.user.id
-     = link_to 'Edit', edit_post_path
+     = link_to 'Edit', edit_post_path(post)
      br
      = link_to 'Destroy', post_path, method: :delete
-     br
 
 
 .row
@@ -38,7 +35,7 @@
 
 .row
   .medium-5.columns
-    = simple_form_for [post, post.comments.build] do |f|
+    = simple_form_for [post, comment] do |f|
       .form-inputs
         = f.input :body
       .form-actions

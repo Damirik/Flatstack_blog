@@ -4,15 +4,14 @@
 
 .row
   .medium-5.columns
-    = simple_form_for post do |f|
+    = simple_form_for [blog, post] do |f|
       = f.error_notification
 
       .form-inputs
         = f.input :title
         = f.input :content
-        = f.hidden_field :blog_id, value: blog.id
       .form-actions
         = f.button :submit
 
   .medium-5.medium-offset-1.columns.end
-    = link_to 'Back', user_blog_path(blog.user, blog)
+    = link_to 'Back', blog

@@ -1,9 +1,9 @@
 class PostDecorator < Draper::Decorator
-  decorates_association :blog
-
-  delegate :title, :content, :created_at
-  delegate :blog_id, to: :blog
+  delegate :title, :content, :user_id, :to_model
   delegate :user_id, to: :user
+
+  decorates_association :blog
+  decorates_association :comments
 
   def formatted_created_at
     object.created_at.strftime("%m/%d/%Y - %H:%M")

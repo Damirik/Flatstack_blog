@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
   expose :blog
-  expose :posts, from: :blog
+  expose_decorated :posts, from: :blog
 
   def show
   end

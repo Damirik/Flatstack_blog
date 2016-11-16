@@ -4,7 +4,7 @@
 
 .row
   .medium-5.columns
-    = simple_form_for [current_user, blog] do |f|
+    = simple_form_for blog do |f|
       = f.error_notification
 
       .form-inputs
@@ -15,6 +15,5 @@
 
   .medium-5.medium-offset-1.columns.end
     = link_to 'Back', user_root_path
-    br
-    = link_to 'Show', user_blog_path
+
 
