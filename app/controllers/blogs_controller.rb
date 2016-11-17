@@ -33,7 +33,7 @@ class BlogsController < ApplicationController
   private
 
   def authorize_user!
-    authorize(blog, :authorized?)
+    authorize(blog, :manage?)
   end
 
   def blog_params

@@ -20,12 +20,12 @@
               td = link_to post.title, post
               td = post.formatted_created_at
               td = post.comments_count
-              - if policy(post).authorized?
+              - if policy(post).manage?
                td = link_to 'Destroy', post_path, method: :delete
                td = link_to 'Edit', edit_post_path(post)
 
   .medium-5.medium-offset-1.columns.end
-    - if policy(blog).authorized?
+    - if policy(blog).manage?
      = link_to 'New Post', new_blog_post_path(blog)
      br
     = link_to 'Back', user_root_path

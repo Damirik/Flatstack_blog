@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   private
 
   def authorize_user!
-    authorize(post, :authorized?)
+    authorize(post, :manage?)
   end
 
   def post_params

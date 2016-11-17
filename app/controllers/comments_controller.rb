@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   private
 
   def authorize_user!
-    authorize(comment, :authorized?)
+    authorize(comment, :manage?)
   end
 
   def comment_params
