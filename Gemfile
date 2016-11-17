@@ -40,6 +40,10 @@ group :development, :test do
   gem "faker"
   gem "rubocop", require: false
   gem "rubocop-rspec", require: false
+  gem "brakeman", require: false
+  gem "bundler-audit", require: false
+  gem "scss_lint", require: false
+  gem "slim_lint", require: false
 end
 
 group :development do
