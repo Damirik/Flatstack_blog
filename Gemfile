@@ -22,15 +22,16 @@ gem "decent_exposure"
 gem "devise"
 gem "responders"
 gem "pundit"
-gem "activemodel-serializers-xml", github: "rails/activemodel-serializers-xml"
-gem "draper", github: "audionerd/draper", branch: "rails5"
+gem "activemodel-serializers-xml"
+gem "draper"
 gem "decent_decoration"
 
 group :test do
   gem "capybara"
-  gem "shoulda-matchers", "< 3.0.0"
+  gem "shoulda-matchers", "~> 3.0"
   gem "email_spec"
   gem "formulaic"
+  gem "rspec-its"
 end
 
 group :development, :test do
@@ -51,4 +52,6 @@ group :development do
   gem "pry-rails"
   gem "web-console"
   gem "spring"
+  gem "spring-commands-rspec"
+  gem "foreman", require: false
 end

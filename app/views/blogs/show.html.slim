@@ -1,12 +1,12 @@
 .row
   .columns
-    h2 = title("#{blog.subject}")
+    h2 #{blog.subject}
 
 .row
   .medium-7.columns
-    - unless blog.posts_exists? & policy(blog).manage?
+    - if !blog.posts_exists? & policy(blog).manage?
         p No posts
-        = link_to 'Create your first post', new_blog_post_path(blog)
+        = link_to "Create your first post", new_blog_post_path(blog)
     - else
       table
         thead
@@ -25,8 +25,8 @@
 
   .medium-3.medium-offset-1.columns.end
     - if policy(blog).manage?
-     = link_to 'New Post', new_blog_post_path(blog)
+     = link_to "New Post", new_blog_post_path(blog)
      br
-    = link_to 'Back', user_root_path
+    = link_to "Back", user_root_path
 
 

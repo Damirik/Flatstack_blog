@@ -1,6 +1,6 @@
 .row
   .columns
-    h2 = title("#{post.title}")
+    h2 #{post.title}
 
 .row
   .medium-5.columns
@@ -15,20 +15,20 @@
     - if post.comments.empty?
       p No comments here
     - else
-    - post.comments.each do |comment|
-      p
-        strong By user:
-        = comment.user.email
-        br
-        strong Comment:
-        = comment.body
-        - if policy(comment).manage?
-         =link_to 'Delete comment', [comment.post, comment], method: :delete
+      - post.comments.each do |comment|
+        p
+          strong By user:
+          = comment.user.email
+          br
+          strong Comment:
+          = comment.body
+          - if policy(comment).manage?
+           =link_to "Delete comment", [comment.post, comment], method: :delete
   .medium-5.medium-offset-1.columns.end
     - if policy(post).manage?
-     = link_to 'Edit', edit_post_path(post)
+     = link_to "Edit", edit_post_path(post)
      br
-     = link_to 'Destroy', post_path, method: :delete
+     = link_to "Destroy", post_path, method: :delete
 
 
 .row

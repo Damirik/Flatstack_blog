@@ -18,11 +18,11 @@
             tr
               td = link_to blog.subject, blog
               td = blog.posts_count
-              td = link_to 'Edit', edit_blog_path(blog)
-              td = link_to 'Destroy', blog, method: :delete
+              td = link_to "Edit", edit_blog_path(blog)
+              td = link_to "Destroy", blog, method: :delete
 
   .medium-5.medium-offset-1.columns.end
     - if blogs.empty?
-      = link_to 'Create your first blog', new_user_blog_path(current_user)
+      = link_to "Create your first blog", new_user_blog_path(current_user)
     - else
-      = link_to 'New Blog', new_user_blog_path(current_user)
+      = link_to "New Blog", new_user_blog_path(current_user)
