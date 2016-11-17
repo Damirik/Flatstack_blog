@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize_user!, except: [:show, :new, :create]
+  before_action :authorize_user!, except: %i(show new create)
 
   expose :blog
   expose_decorated :post
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
 
   def destroy
     post.destroy
-    respond_with post, location: user_root_path
+    respond_with post, location: post.blog
   end
 
   private
