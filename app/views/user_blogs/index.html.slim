@@ -11,13 +11,15 @@
         thead
           tr
             th Subject
+            th Posts count
 
         tbody
           - blogs.each do |blog|
             tr
-            td = link_to blog.subject, blog
-            td = link_to 'Edit', edit_blog_path(blog)
-            td = link_to 'Destroy', blog, method: :delete
+              td = link_to blog.subject, blog
+              td = blog.posts_count
+              td = link_to 'Edit', edit_blog_path(blog)
+              td = link_to 'Destroy', blog, method: :delete
 
   .medium-5.medium-offset-1.columns.end
     - if blogs.empty?

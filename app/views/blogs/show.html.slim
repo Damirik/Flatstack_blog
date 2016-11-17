@@ -19,7 +19,10 @@
             tr
               td = link_to post.title, post
               td = post.formatted_created_at
-              td = post.comments.count
+              td = post.comments_count
+              - if policy(post).authorized?
+               td = link_to 'Destroy', post_path, method: :delete
+               td = link_to 'Edit', edit_post_path(post)
 
   .medium-5.medium-offset-1.columns.end
     - if policy(blog).authorized?

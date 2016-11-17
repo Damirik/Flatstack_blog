@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  expose :blogs, -> { Blog.all }
+  expose_decorated :blogs, -> { Blog.all }
 
   def index
   end
