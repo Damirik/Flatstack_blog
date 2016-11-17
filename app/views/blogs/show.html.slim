@@ -3,8 +3,8 @@
     h2 = title("#{blog.subject}")
 
 .row
-  .medium-5.columns
-    - if posts.empty?
+  .medium-7.columns
+    - unless blog.posts_exists? & policy(blog).manage?
         p No posts
         = link_to 'Create your first post', new_blog_post_path(blog)
     - else
@@ -14,17 +14,16 @@
             th Posts
             th Created at
             th Comments count
+            th Author
         tbody
           - posts.each do |post|
             tr
               td = link_to post.title, post
               td = post.formatted_created_at
               td = post.comments_count
-              - if policy(post).manage?
-               td = link_to 'Destroy', post_path, method: :delete
-               td = link_to 'Edit', edit_post_path(post)
+              td = post.author
 
-  .medium-5.medium-offset-1.columns.end
+  .medium-3.medium-offset-1.columns.end
     - if policy(blog).manage?
      = link_to 'New Post', new_blog_post_path(blog)
      br

@@ -12,4 +12,8 @@ class BlogDecorator < ApplicationDecorator
   def author
     object.user.full_name
   end
+
+  def posts_exists?
+    object.posts.exists?
+  end
 end

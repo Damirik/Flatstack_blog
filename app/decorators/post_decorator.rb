@@ -12,4 +12,8 @@ class PostDecorator < ApplicationDecorator
   def comments_count
     object.comments.count
   end
+
+  def author
+    object.user.full_name
+  end
 end
