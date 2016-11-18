@@ -26,6 +26,6 @@ end
 end
 
 100.times do
-   FactoryGirl.create(:comment, body: Faker::Name.title, user_id: 1, post_id: 1)
+  FactoryGirl.create(:comment, body: Faker::Name.title, user_id: 1, post_id: 1)
 end
 
