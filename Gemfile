@@ -25,6 +25,7 @@ gem "pundit"
 gem "activemodel-serializers-xml"
 gem "draper", git: "https://github.com/audionerd/draper", branch: "rails5"
 gem "decent_decoration"
+gem "kaminari"
 
 group :test do
   gem "capybara"
