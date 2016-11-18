@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/audionerd/draper
+  revision: e816e0e5876b76c648c0928f1c3f2aa2c7a3d1f2
+  branch: rails5
+  specs:
+    draper (2.1.0)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -91,11 +102,6 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
-    draper (2.1.0)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
-      request_store (~> 1.0)
     email_spec (2.1.0)
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
@@ -299,7 +305,7 @@ DEPENDENCIES
   decent_decoration
   decent_exposure
   devise
-  draper
+  draper!
   email_spec
   factory_girl_rails
   faker

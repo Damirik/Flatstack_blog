@@ -1,5 +1,4 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_user!
   before_action :authorize_user!, only: %i(edit update destroy)
 
   expose_decorated :blog

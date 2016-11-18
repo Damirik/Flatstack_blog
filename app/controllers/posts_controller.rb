@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
   before_action :authorize_user!, except: %i(show new create)
 
   expose :blog

@@ -23,7 +23,7 @@ gem "devise"
 gem "responders"
 gem "pundit"
 gem "activemodel-serializers-xml"
-gem "draper"
+gem "draper", git: "https://github.com/audionerd/draper", branch: "rails5"
 gem "decent_decoration"
 
 group :test do
