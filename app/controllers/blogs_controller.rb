@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_action :authorize_user!, only: %i(edit update destroy)
 
   expose_decorated :blog
-  expose_decorated :posts, from: :blog
+  expose_decorated(:posts) { blog_posts }
 
   def show
   end
@@ -30,6 +30,10 @@ class BlogsController < ApplicationController
   end
 
   private
+
+  def blog_posts
+    blog.posts.order(created_at: :desc).page(params[:page]).per(10)
+  end
 
   def authorize_user!
     authorize(blog, :manage?)

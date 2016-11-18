@@ -14,4 +14,6 @@
           tr
             td = link_to blog.subject, blog
             td = blog.author
-- paginate blogs
+
+    .paginator
+      = paginate(blogs)

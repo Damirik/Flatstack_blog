@@ -3,7 +3,7 @@
     h2 #{blog.subject}
 
 .row
-  .medium-7.columns
+  .medium-9.columns
     - if !blog.posts_exists? & policy(blog).manage?
         p No posts
         = link_to "Create your first post", new_blog_post_path(blog)
@@ -22,8 +22,10 @@
               td = post.formatted_created_at
               td = post.comments_count
               td = post.author
+      .paginator
+        = paginate(posts)
 
-  .medium-3.medium-offset-1.columns.end
+  .medium-1.medium-offset-1.columns.end
     - if policy(blog).manage?
      = link_to "New Post", new_blog_post_path(blog)
      br
