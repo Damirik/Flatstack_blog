@@ -6,4 +6,8 @@ class CommentDecorator < ApplicationDecorator
   decorates_association :post
 
   delegate_all
+
+  def user_email
+    object.user.email
+  end
 end

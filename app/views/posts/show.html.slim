@@ -15,15 +15,17 @@
     - if post.comments.empty?
       p No comments here
     - else
-      - post.comments.each do |comment|
+      - comments.each do |comment|
         p
           strong By user:
-          = comment.user.email
+          = comment.user_email
           br
           strong Comment:
           = comment.body
           - if policy(comment).manage?
-           =link_to "Delete comment", [comment.post, comment], method: :delete
+            =link_to "Delete comment", [comment.post, comment], method: :delete
+      .paginator
+        = paginate(comments)
   .medium-5.medium-offset-1.columns.end
     - if policy(post).manage?
      = link_to "Edit", edit_post_path(post)

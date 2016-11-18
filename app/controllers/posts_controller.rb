@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   expose :blog
   expose_decorated :post
   expose(:comment) { post.comments.build }
+  expose_decorated(:comments) { post_comments }
 
   def show
   end
@@ -33,6 +34,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def post_comments
+    post.comments.order(created_at: :desc).page(params[:page]).per(5)
+  end
 
   def authorize_user!
     authorize(post, :manage?)

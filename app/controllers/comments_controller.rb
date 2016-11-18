@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :authorize_user!, only: :destroy
 
   expose :post
-  expose :comment
+  expose_decorated :comment
 
   def create
     comment.post = post
