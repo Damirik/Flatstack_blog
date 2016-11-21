@@ -18,6 +18,10 @@ class PostDecorator < ApplicationDecorator
   end
 
   def preview
-    object.content.split('.')[0]
+    if object.content.scan('.').empty?
+      object.content[0,100]
+    else
+      object.content.split('.')[0]
+    end
   end
 end
