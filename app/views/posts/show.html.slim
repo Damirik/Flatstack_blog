@@ -12,19 +12,20 @@
       = post.content
 
     h2 Comments
-    - if post.comments.empty?
+    - if comments.empty?
       p No comments here
     - else
-      - post.comments.each do |comment|
+      - comments.each do |comment|
         p
           strong By user:
-
+          = comment.user_email
           br
           strong Comment:
           = comment.body
           - if policy(comment).manage?
             =link_to "Delete comment", [comment.post, comment], method: :delete
       .paginator
+        = paginate(comments)
 
   .medium-5.medium-offset-1.columns.end
     - if policy(post).manage?
@@ -39,7 +40,7 @@
 
   .row
     .medium-5.columns
-      = simple_form_for ([post, comment]) do |f|
+      = simple_form_for(post, comment) do |f|
         = f.error_notification
 
         .form-inputs
@@ -47,7 +48,6 @@
 
         .form-actions
           = f.button :submit
-
 
 
 
