@@ -18,6 +18,6 @@ class PostDecorator < ApplicationDecorator
   end
 
   def preview
-    object.content[0..50]
+    object.content.split('.')[0]
   end
 end
