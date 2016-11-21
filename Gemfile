@@ -4,7 +4,7 @@ gem "rails", "~> 5.0.0"
 gem "pg"
 
 # assets
-gem "sass-rails", "~> 5.0.0"
+gem "sass-rails"
 gem "uglifier"
 gem "jquery-rails"
 gem "foundation-rails"
