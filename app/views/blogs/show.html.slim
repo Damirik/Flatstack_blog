@@ -25,10 +25,7 @@
       .paginator
         = paginate(posts)
 
-  .medium-1.medium-offset-1.columns.end
+  .medium-2.medium-offset-1.columns.end
     - if policy(blog).manage?
      = link_to "New Post", new_blog_post_path(blog)
-     br
-    = link_to "Back", user_root_path
-
 
