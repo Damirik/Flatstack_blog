@@ -15,6 +15,7 @@
             th Created at
             th Comments count
             th Author
+            th Preview
         tbody
           - posts.each do |post|
             tr
@@ -22,6 +23,8 @@
               td = post.formatted_created_at
               td = post.comments_count
               td = post.author
+              td = post.preview
+
       .paginator
         = paginate(posts)
 

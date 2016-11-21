@@ -16,4 +16,8 @@ class PostDecorator < ApplicationDecorator
   def author
     object.user.full_name
   end
+
+  def preview
+    object.content[0..50]
+  end
 end
