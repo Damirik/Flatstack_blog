@@ -32,18 +32,18 @@
      br
      = link_to "Destroy", post_path, method: :delete
 
+- if user_signed_in?
+  .row
+    .columns
+      h2 Add a comment:
 
-.row
-  .columns
-    h2 Add a comment:
-
-.row
-  .medium-5.columns
-    = simple_form_for [post, comment] do |f|
-      .form-inputs
-        = f.input :body
-      .form-actions
-        = f.button :submit
+  .row
+    .medium-5.columns
+      = simple_form_for [post, comment] do |f|
+        .form-inputs
+          = f.input :body
+        .form-actions
+          = f.button :submit
 
 
 
