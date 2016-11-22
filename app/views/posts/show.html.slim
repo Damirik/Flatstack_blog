@@ -8,7 +8,7 @@
       p = post.content
       - if policy(post).manage?
         p = link_to "Edit", edit_post_path(post)
-        p = link_to "Destroy", post_path, method: :delete
+        p = link_to "Destroy", post, method: :delete
 
     h2 Comments
     - if comments.empty?
@@ -23,8 +23,6 @@
           .comment-time
             li = comment.formatted_created_at
           hr
-      .paginator
-        = paginate(comments)
 
 - if user_signed_in?
   .column-row
