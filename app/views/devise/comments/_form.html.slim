@@ -1,0 +1,9 @@
+.comment
+  h2 Add comment
+  = simple_form_for([post, comment], data: { remote: true, behavior: "fragments" }) do |f|
+
+        .form-inputs
+          = f.input :body
+
+        .form-actions
+          = f.button :submit, class: "button7"

@@ -1,0 +1,4 @@
+= content_tag :div, data: { "fragment-id" => "discussion" } do
+  = render(partial: "comments/comment", collection: comments)
+  = render("devise/comments/form", comment: comment) if user_signed_in?
+

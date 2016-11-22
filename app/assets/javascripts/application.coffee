@@ -7,6 +7,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require foundation
+#= require fragments
 #= require_tree .
 
 $(document).foundation()

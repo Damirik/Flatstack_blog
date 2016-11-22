@@ -1,18 +1,16 @@
 class PostsController < ApplicationController
-  before_action :authorize_user!, except: %i(show new create)
+  before_action :authorize_user!, only: %i(edit update destroy)
 
-  expose :blog
   expose_decorated :post
-  expose(:comment) { post.comments.build }
+  expose(:blog)
+
+  expose(:comment) { Comment.new(post: post) }
   expose_decorated(:comments) { post_comments }
 
   def show
   end
 
   def new
-  end
-
-  def edit
   end
 
   def create
@@ -23,9 +21,12 @@ class PostsController < ApplicationController
     respond_with post
   end
 
+  def edit
+  end
+
   def update
-    post.update(post_params)
-    respond_with post
+    post.save
+    respond_with(post)
   end
 
   def destroy
@@ -44,6 +45,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :user_id, :blog_id)
+    params.require(:post).permit(:title, :content)
   end
 end

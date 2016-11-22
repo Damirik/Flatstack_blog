@@ -1,0 +1,8 @@
+.comment-view
+  p = comment.body
+  - if policy(comment).manage?
+    =link_to "Delete comment", [comment.post, comment], method: :delete
+  .comment-time
+    li = comment.formatted_created_at
+    li By user: #{comment.user_email}
+  hr

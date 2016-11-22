@@ -3,17 +3,14 @@ class CommentsController < ApplicationController
   before_action :authorize_user!, only: :destroy
 
   expose_decorated :post
-  expose :comment
-  expose_decorated(:comments) { post_comments }
+  expose_decorated(:comments) { Comment.by_post(post) }
+  expose(:comment, attributes: :comment_params)
 
   def create
     comment.post = post
     comment.user = current_user
-    if comment.save
-      respond_with comment, location: post
-    else
-      render "posts/show"
-    end
+    self.comment = new_comment if comment.save
+    render "posts/fragments"
   end
 
   def destroy
@@ -24,8 +21,8 @@ class CommentsController < ApplicationController
 
   private
 
-  def post_comments
-    post.comments.order(created_at: :desc).page(params[:page]).per(3)
+  def new_comment
+    post.comments.build
   end
 
   def authorize_user!
@@ -33,6 +30,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:body, :post_id)
+    params.require(:comment).permit(:body)
   end
 end
