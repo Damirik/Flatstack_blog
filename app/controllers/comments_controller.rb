@@ -2,22 +2,18 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, only: :create
   before_action :authorize_user!, only: :destroy
 
-  expose :post
-  expose_decorated :comment
+  expose_decorated :post
+  expose :comment
+  expose_decorated(:comments) { post_comments }
 
   def create
     comment.post = post
     comment.user = current_user
-
-    comment.save
-
-    redirect_to :back
-
-    #   respond_with comment, location: post
-    # else
-    #   flash[:alert] = "Comment can't be blank"
-    #   redirect_to :back
-    # end
+    if comment.save
+      respond_with comment, location: post
+    else
+      render "posts/show"
+    end
   end
 
   def destroy
@@ -27,6 +23,10 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def post_comments
+    post.comments.order(created_at: :desc).page(params[:page]).per(3)
+  end
 
   def authorize_user!
     authorize(comment, :manage?)
