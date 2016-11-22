@@ -1,0 +1,108 @@
+body {
+  background: url(background.png) repeat;
+  -moz-background-size: 100%; /* Firefox 3.6+ */
+  -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+  -o-background-size: 100%; /* Opera 9.6+ */
+  background-size: 100%; /* Современные браузеры */
+}
+
+.blog-list {
+  background-color: #292735;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding-top: 1.5%;
+  margin-bottom: 10%;
+  padding-bottom:  3%;
+}
+h2 {
+  text-transform: uppercase;
+  text-align:left;
+  font-size: 25px;
+  font-weight: 300;
+  color:white;
+}
+li {
+  color: white;
+}
+p{
+  color: white;
+}
+
+.paginator {
+  text-align:center;
+}
+
+.button7 {
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .8em 1em calc(.8em + 3px);
+  border-radius: 3px;
+  padding-left: 10%;
+  padding-right: 10%;
+  background: #6a6596;
+}
+
+
+
+h1 {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 300;
+  color:white;
+  padding-left: 14%;
+}
+
+.blog > p {
+  margin-right: 30px;
+  color: white;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.create_button{
+  padding-top: 2%;
+  text-align:  center;
+}
+
+.post-preview {
+  text-align: right;
+  color: white;
+  font-weight:  600;
+  font-size:  15px;
+  list-style: none;
+}
+
+.comment {
+  width: 40%;
+  color: white;
+  margin-left: 20%;
+}
+
+.post-list {
+  background-color: #292735;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding-top: 1.5%;
+}
+
+.comment-view > p {
+  margin-right: 30px;
+  color: white;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.comment-time {
+  text-align: right;
+  color: white;
+  font-weight:  600;
+  font-size:  15px;
+  list-style: none;
+}

@@ -49,7 +49,7 @@ $global-font-size: 100%;
 $global-width: rem-calc(1000);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #2199e8,
+  primary: #7d78a2,
   secondary: #777,
   success: #3adb76,
   warning: #ffae00,
@@ -61,7 +61,7 @@ $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
-$body-font-color: $black;
+$body-font-color: $white;
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -334,7 +334,7 @@ $input-prefix-color: $black;
 $input-prefix-background: $light-gray;
 $input-prefix-border: 1px solid $medium-gray;
 $input-prefix-padding: 1rem;
-$form-label-color: $black;
+$form-label-color: $white;
 $form-label-font-size: rem-calc(14);
 $form-label-font-weight: $global-weight-normal;
 $form-label-line-height: 1.8;
@@ -426,7 +426,7 @@ $orbit-control-zindex: 10;
 
 $pagination-font-size: rem-calc(14);
 $pagination-margin-bottom: $global-margin;
-$pagination-item-color: $black;
+$pagination-item-color: $white;
 $pagination-item-padding: rem-calc(3 10);
 $pagination-item-spacing: rem-calc(1);
 $pagination-radius: $global-radius;
@@ -556,10 +556,10 @@ $tooltip-pip-height: $tooltip-pip-width * .866;
 $tooltip-radius: $global-radius;
 
 // 36. Top Bar
-// -----------
+// --------
 
 $topbar-padding: 0;
-$topbar-background: $light-gray;
+$topbar-background: #292735;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;

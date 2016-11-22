@@ -36,7 +36,7 @@ class PostsController < ApplicationController
   private
 
   def post_comments
-    post.comments.order(created_at: :desc).page(params[:page]).per(5)
+    post.comments.order(created_at: :desc).page(params[:page]).per(3)
   end
 
   def authorize_user!

@@ -32,7 +32,7 @@ class BlogsController < ApplicationController
   private
 
   def blog_posts
-    blog.posts.order(created_at: :desc).page(params[:page]).per(10)
+    blog.posts.order(created_at: :desc).page(params[:page]).per(3)
   end
 
   def authorize_user!

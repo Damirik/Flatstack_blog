@@ -1,34 +1,26 @@
-.row
-  .columns
-    h2 #{blog.subject}
+.column-row
+    h1 #{blog.subject}
 
-.row
-  .medium-9.columns
-    - if !blog.posts_exists? & policy(blog).manage?
-        p No posts
-        = link_to "Create your first post", new_blog_post_path(blog)
-    - else
-      table
-        thead
-          tr
-            th Posts
-            th Created at
-            th Comments count
-            th Author
-            th Preview
-        tbody
-          - posts.each do |post|
-            tr
-              td = link_to post.title, post
-              td = post.formatted_created_at
-              td = post.comments_count
-              td = post.author
-              td = post.preview
+- if !blog.posts_exists? & policy(blog).manage?
+  .column-row
+    .create_button
+      = link_to "Create your first post", new_blog_post_path(blog), class: "button7"
+- else
+  .blog-list
+    - posts.each do |post|
+      .blog
+        h2 = link_to post.title, post
+        p = post.preview
+        .post-preview
+          li  Created time: #{post.formatted_created_at}
+          li Written by: #{post.author}
+        hr
 
-      .paginator
-        = paginate(posts)
+    .paginator
+      = paginate(posts)
 
-  .medium-2.medium-offset-1.columns.end
     - if policy(blog).manage?
-     = link_to "New Post", new_blog_post_path(blog)
+      .column-row
+        .create_button
+           = link_to "New Post", new_blog_post_path(blog), class: "button7"
 

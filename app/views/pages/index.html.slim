@@ -1,19 +1,14 @@
-.row
-  .columns
-    h2 = title("All Blogs")
+.column-row
+    h1 = title("All Blogs")
 
-.row
-  .medium-7.columns
-    table
-      thead
-        tr
-          th Blog title
-          th Written by
-      tbody
-        - blogs.each do |blog|
-          tr
-            td = link_to blog.subject, blog
-            td = blog.author
+.column-row
+  .blog-list
+    - blogs.each do |blog|
+      .blog
+        h2 = link_to blog.subject, blog
+        li  Created time: #{blog.formatted_created_at}
+        li Written by: #{blog.author}
+        hr
 
     .paginator
       = paginate(blogs)

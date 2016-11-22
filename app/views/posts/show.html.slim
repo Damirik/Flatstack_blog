@@ -1,53 +1,42 @@
-.row
-  .columns
-    h2 #{post.title}
+.column-row
+  h1 #{post.title}
 
-.row
-  .medium-5.columns
-    p
-      strong Title:
-      = post.title
-    p
-      strong Content:
-      = post.content
+.column-row
+  .post-list
+    h2 Content
+    .blog
+      p = post.content
+      - if policy(post).manage?
+        p = link_to "Edit", edit_post_path(post)
+        p = link_to "Destroy", post_path, method: :delete
 
     h2 Comments
     - if comments.empty?
       p No comments here
     - else
       - comments.each do |comment|
-        p
-          strong By user:
-          = comment.user_email
-          br
-          strong Comment:
-          = comment.body
+        .comment-view
+          p = comment.body
+          p By user: #{comment.user_email}
           - if policy(comment).manage?
             =link_to "Delete comment", [comment.post, comment], method: :delete
+          .comment-time
+            li = comment.formatted_created_at
+          hr
       .paginator
         = paginate(comments)
 
-  .medium-5.medium-offset-1.columns.end
-    - if policy(post).manage?
-     = link_to "Edit", edit_post_path(post)
-     br
-     = link_to "Destroy", post_path, method: :delete
-
 - if user_signed_in?
-  .row
-    .columns
-      h2 Add a comment:
-
-  .row
-    .medium-5.columns
-      = simple_form_for(post, comment) do |f|
+  .column-row
+    h1 Add a comment:
+    .comment
+      = simple_form_for [post, comment] do |f|
         = f.error_notification
 
         .form-inputs
           = f.input :body
 
         .form-actions
-          = f.button :submit
-
+          = f.button :submit, class: "button7"
 
 

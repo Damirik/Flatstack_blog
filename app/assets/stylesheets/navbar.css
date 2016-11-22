@@ -1,0 +1,14 @@
+.top-bar {
+  width: 60%;
+  margin-left: 20%;
+  font-weight: 500;
+}
+
+.notice {
+  width: 60%;
+  text-align: center;
+  margin-left: 20%;
+  background-color: #292735;
+  color: white;
+}
+
