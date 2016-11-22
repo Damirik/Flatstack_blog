@@ -4,7 +4,7 @@
 .blog-list
   - if !blog.posts_exists?
     p No posts
-    - if  policy(blog).manage?
+    - if policy(blog).manage?
       .column-row
         .create_button
           = link_to "Create your first post", new_blog_post_path(blog), class: "button7"
