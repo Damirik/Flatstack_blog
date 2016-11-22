@@ -8,16 +8,21 @@ class CommentsController < ApplicationController
   def create
     comment.post = post
     comment.user = current_user
-    if comment.save
-      respond_with comment, location: post
-    else
-      flash[:alert] = "Comment can't be blank"
-      redirect_to :back
-    end
+
+    comment.save
+
+    redirect_to :back
+
+    #   respond_with comment, location: post
+    # else
+    #   flash[:alert] = "Comment can't be blank"
+    #   redirect_to :back
+    # end
   end
 
   def destroy
     comment.destroy
+
     respond_with comment, location: post
   end
 

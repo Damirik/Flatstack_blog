@@ -9,7 +9,6 @@
         .create_button
           = link_to "Create your first post", new_blog_post_path(blog), class: "button7"
   - else
-    .blog-list
       - posts.each do |post|
         .blog
           h2 = link_to post.title, post

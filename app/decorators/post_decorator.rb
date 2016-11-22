@@ -1,4 +1,6 @@
 class PostDecorator < ApplicationDecorator
+  include ActionView::Helpers::TextHelper
+
   delegate :title, :content, :user_id
   delegate :user_id, to: :user
 
@@ -14,6 +16,6 @@ class PostDecorator < ApplicationDecorator
   end
 
   def preview
-    object.content.scan(".").empty? ? object.content[0, 100] : object.content.split(".")[0]
+    truncate(object.content)
   end
 end
