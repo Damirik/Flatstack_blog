@@ -27,7 +27,7 @@ gem "draper", git: "https://github.com/audionerd/draper", branch: "rails5"
 gem "decent_decoration"
 gem "kaminari"
 gem "omniauth-google-oauth2"
-gem "fragments.js", github: "fs/fragments.js"
+gem "fragments.js", git: "https://github.com/fs/fragments.js"
 
 group :test do
   gem "capybara"

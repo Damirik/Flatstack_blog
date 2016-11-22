@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/fs/fragments.js.git
-  revision: 4d786b7a53ccc487dec3008e789aaaf14b8b0c5d
-  specs:
-    fragments.js (0.0.1)
-
-GIT
   remote: https://github.com/audionerd/draper
   revision: e816e0e5876b76c648c0928f1c3f2aa2c7a3d1f2
   branch: rails5
@@ -14,6 +8,12 @@ GIT
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0)
+
+GIT
+  remote: https://github.com/fs/fragments.js
+  revision: 4d786b7a53ccc487dec3008e789aaaf14b8b0c5d
+  specs:
+    fragments.js (0.0.1)
 
 GEM
   remote: https://rubygems.org/
